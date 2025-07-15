@@ -1,89 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PhonePe</title>
+  <meta charset="UTF-8">
+  <title>Bank Alert</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
-      margin: 0;
-      padding: 0;
-      font-family: "Segoe UI", sans-serif;
-      background-color: #0e0e0e;
-      color: #fff;
+      background-color: #fff3f3;
+      font-family: 'Segoe UI', sans-serif;
       text-align: center;
+      padding: 60px 20px;
+      color: #b30000;
     }
 
-    .header {
-      background-color: #5f259f;
-      padding: 15px;
+    .alert-box {
+      border: 2px solid #ff4d4d;
+      background-color: #ffe6e6;
+      display: inline-block;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
     }
 
-    .logo {
-      width: 120px;
-    }
-
-    .processing {
-      font-size: 18px;
-      color: #cccccc;
-      margin-top: 30px;
-    }
-
-    .box {
-      margin: 40px auto;
-      background-color: #1e1e1e;
-      border: 2px solid #8d00ff;
-      padding: 20px;
-      border-radius: 10px;
-      max-width: 90%;
-      box-shadow: 0 0 12px rgba(255, 0, 255, 0.2);
-    }
-
-    .amount {
-      font-size: 24px;
+    .balance {
+      font-size: 36px;
       font-weight: bold;
-      color: #ff4d4d;
-      margin-bottom: 15px;
+      margin-top: 20px;
+      color: #990000;
     }
 
-    .note {
-      color: #cccccc;
-      font-size: 15px;
-      line-height: 1.5;
+    .message {
+      font-size: 18px;
+      margin-top: 10px;
     }
 
-    .footer {
-      margin-top: 40px;
-      font-size: 12px;
-      color: #555;
+    .warning {
+      margin-top: 30px;
+      color: #cc0000;
+      font-size: 16px;
+      font-style: italic;
     }
   </style>
 </head>
 <body>
-  <div class="header">
-    <img class="logo" src="https://i.imgur.com/xDx9yfg.png" alt="PhonePe Logo" />
+  <h1>⚠️ URGENT BANK ALERT ⚠️</h1>
+
+  <div class="alert-box">
+    <div class="balance">₹0.00</div>
+    <div class="message">Your bank balance is critically low.</div>
+    <div class="message">All funds have been debited.</div>
+    <div class="warning">If this wasn’t you, contact support immediately.</div>
   </div>
 
-  <div class="processing">Processing transaction...</div>
-
-  <div class="box">
-    <div class="amount">₹84,999 has been debited from your account.</div>
-    <div class="note">
-      Thank you for using PhonePe.<br />
-      If this wasn't you, please <b>report this transaction immediately</b> to prevent account suspension.
-    </div>
-  </div>
-
-  <audio autoplay>
-    <source src="https://github.com/ItsAadiSahore/phonepe-sound/raw/main/phonepe.mp3" type="audio/mpeg">
+  <audio id="alertSound" autoplay>
+    <source src="https://www.soundjay.com/button/sounds/beep-07.mp3" type="audio/mpeg">
   </audio>
 
   <script>
-    if (navigator.vibrate) {
-      navigator.vibrate([300, 150, 300]);
+    // Vibrate on load
+    if ("vibrate" in navigator) {
+      navigator.vibrate([500, 300, 500]);
     }
-  </script>
 
-  <div class="footer">© 2025 PhonePe™ — All rights reserved</div>
+    // Replay sound just in case
+    const sound = document.getElementById("alertSound");
+    sound.play().catch(() => {
+      // Autoplay might be blocked, will play on user interaction
+      document.body.addEventListener("click", () => {
+        sound.play();
+      }, { once: true });
+    });
+  </script>
 </body>
 </html>
