@@ -29,7 +29,12 @@
     }
   </style>
 </head>
-<body>
+<script>
+  if (navigator.vibrate) {
+    navigator.vibrate([200, 100, 200]); // vibration pattern
+  }
+</script>
+  <body>
   <img src="https://i.imgur.com/xDx9yfg.png" alt="PhonePe Logo" style="width: 120px; margin-bottom: 20px;" />
   <div class="box">
     <div class="amount">₹84,999 has been debited from your account.</div>
