@@ -1,51 +1,89 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PhonePe</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     body {
-      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+      font-family: "Segoe UI", sans-serif;
+      background-color: #0e0e0e;
+      color: #fff;
       text-align: center;
-      background-color: #ffffff;
-      padding: 40px 10px;
     }
+
+    .header {
+      background-color: #5f259f;
+      padding: 15px;
+    }
+
+    .logo {
+      width: 120px;
+    }
+
+    .processing {
+      font-size: 18px;
+      color: #cccccc;
+      margin-top: 30px;
+    }
+
     .box {
-      border: 2px solid #4CAF50;
-      background-color: #e8f5e9;
-      color: #1b5e20;
+      margin: 40px auto;
+      background-color: #1e1e1e;
+      border: 2px solid #8d00ff;
       padding: 20px;
       border-radius: 10px;
-      display: inline-block;
+      max-width: 90%;
+      box-shadow: 0 0 12px rgba(255, 0, 255, 0.2);
     }
+
     .amount {
-      font-size: 22px;
+      font-size: 24px;
       font-weight: bold;
-      margin-top: 10px;
+      color: #ff4d4d;
+      margin-bottom: 15px;
     }
+
     .note {
+      color: #cccccc;
       font-size: 15px;
-      margin-top: 5px;
+      line-height: 1.5;
+    }
+
+    .footer {
+      margin-top: 40px;
+      font-size: 12px;
+      color: #555;
     }
   </style>
 </head>
-<script>
-  if (navigator.vibrate) {
-    navigator.vibrate([200, 100, 200]); // vibration pattern
-  }
-</script>
-  <body>
-  <img src="https://i.imgur.com/xDx9yfg.png" alt="PhonePe Logo" style="width: 120px; margin-bottom: 20px;" />
+<body>
+  <div class="header">
+    <img class="logo" src="https://i.imgur.com/xDx9yfg.png" alt="PhonePe Logo" />
+  </div>
+
+  <div class="processing">Processing transaction...</div>
+
   <div class="box">
     <div class="amount">₹84,999 has been debited from your account.</div>
     <div class="note">
-      Thank you for using PhonePe.<br>
-      If this wasn't you, please report the transaction immediately.
+      Thank you for using PhonePe.<br />
+      If this wasn't you, please <b>report this transaction immediately</b> to prevent account suspension.
     </div>
   </div>
 
   <audio autoplay>
     <source src="https://github.com/ItsAadiSahore/phonepe-sound/raw/main/phonepe.mp3" type="audio/mpeg">
   </audio>
+
+  <script>
+    if (navigator.vibrate) {
+      navigator.vibrate([300, 150, 300]);
+    }
+  </script>
+
+  <div class="footer">© 2025 PhonePe™ — All rights reserved</div>
 </body>
 </html>
