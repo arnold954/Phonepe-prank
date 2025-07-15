@@ -1,95 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Watch Videos & Earn</title>
+  <title>PhonePe</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #f9f9f9;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      flex-direction: column;
-    }
-    .container {
+      font-family: sans-serif;
       text-align: center;
-      padding: 20px;
-    }
-    .earn-title {
-      font-size: 1.5rem;
-      color: #333;
-      margin-bottom: 1rem;
-    }
-    .start-button {
-      padding: 10px 20px;
-      font-size: 1rem;
-      background-color: #4CAF50;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    .phonepe-screen {
-      display: none;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
       background-color: #ffffff;
+      padding: 40px 10px;
     }
-    .logo {
-      width: 80px;
-      margin-bottom: 20px;
+    .box {
+      border: 2px solid #4CAF50;
+      background-color: #e8f5e9;
+      color: #1b5e20;
+      padding: 20px;
+      border-radius: 10px;
+      display: inline-block;
     }
-    .loading {
-      font-size: 1rem;
-      color: #666;
+    .amount {
+      font-size: 22px;
+      font-weight: bold;
       margin-top: 10px;
     }
-    .popup {
-      display: none;
-      background-color: #fff4e5;
-      color: #b33c00;
-      padding: 15px;
-      margin-top: 30px;
-      border: 1px solid #ffc107;
-      border-radius: 5px;
-      max-width: 90%;
-      font-weight: bold;
-      text-align: center;
+    .note {
+      font-size: 15px;
+      margin-top: 5px;
     }
   </style>
 </head>
 <body>
-  <div class="container" id="mainContent">
-    <h1 class="earn-title">Earn ₹1000 per day by just watching 2 YouTube videos</h1>
-    <button class="start-button" onclick="startPrank()">Start Now</button>
-  </div>
-
-  <div class="phonepe-screen" id="prankScreen">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/PhonePe_Logo.svg/512px-PhonePe_Logo.svg.png" alt="PhonePe Logo" class="logo">
-    <div class="loading">Processing transaction...</div>
-    <div class="popup" id="popupMessage">
-      ₹84,999 has been debited from your account.<br>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/PhonePe_Logo.svg/512px-PhonePe_Logo.svg.png" alt="PhonePe Logo" style="width: 120px; margin-bottom: 20px;" />
+  <div class="box">
+    <div class="amount">₹84,999 has been debited from your account.</div>
+    <div class="note">
       Thank you for using PhonePe.<br>
       If this wasn't you, please report the transaction immediately.
     </div>
   </div>
-
-  <script>
-    function startPrank() {
-      document.getElementById("mainContent").style.display = "none";
-      const prankScreen = document.getElementById("prankScreen");
-      prankScreen.style.display = "flex";
-      
-      setTimeout(() => {
-        document.getElementById("popupMessage").style.display = "block";
-      }, 3000);
-    }
-  </script>
 </body>
 </html>
